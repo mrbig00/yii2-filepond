@@ -35,6 +35,9 @@ class FilepondWidget extends InputWidget
 
     private $encodedInstanceOptions;
 
+    public $routeToProcess = [];
+    public $routeToRevert = [];
+
     public function init()
     {
         $this->language = $this->language ?? \Yii::$app->language;
@@ -47,8 +50,8 @@ class FilepondWidget extends InputWidget
         $this->encodedInstanceOptions = Json::encode($this->instanceOptions);
 
         $this->settingsOptions['server'] = [
-            'process' =>  Url::to(['/' . $this->moduleId . '/main/upload']),
-            'revert' => Url::to(['/' . $this->moduleId . '/main/delete'])
+            'process' =>  Url::to($this->routeToProcess),
+            'revert' => Url::to($this->routeToRevert)
         ];
         $this->settingsOptions = Json::encode($this->settingsOptions);
     }

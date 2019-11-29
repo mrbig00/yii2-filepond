@@ -22,16 +22,6 @@ to the require section of your `composer.json` file.
 
 ## Usage
 
-Add the extension to the `module` section in your config file
-
-```
-    'modules' => [
-       'filepond' => [
-           'class' => \vkabachenko\filepond\Module::class
-       ]
-    ],
-``` 
-
 After that you can use Filepond library to upload files in your project.
 
 [Single file upload without model](docs/single-without-model.md) 

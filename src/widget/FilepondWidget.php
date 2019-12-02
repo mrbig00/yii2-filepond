@@ -53,7 +53,6 @@ class FilepondWidget extends InputWidget
             'process' =>  Url::to($this->routeToProcess),
             'revert' => Url::to($this->routeToRevert)
         ];
-        $this->settingsOptions = Json::encode($this->settingsOptions);
     }
 
     public function run()
@@ -74,9 +73,9 @@ class FilepondWidget extends InputWidget
         $view = $this->getView();
 
         $this->registerAssets($view);
-        $view->registerJsVar('instanceOptions',$this->encodedInstanceOptions);
-        $view->registerJsVar('settingsOptions', $this->settingsOptions);
         $view->registerJsVar('filepondClass', $this->filepondClass);
+        $view->registerJs('var instanceOptions = ' . json_encode($this->instanceOptions).";", $view::POS_HEAD);
+        $view->registerJs('var settingsOptions = ' . json_encode($this->settingsOptions).";", $view::POS_HEAD);
         FilepondConfigAsset::register($view);
     }
 

@@ -52,4 +52,4 @@ if (instanceOptions.allowImageTransform) {
 
 FilePond.setOptions(settingsOptions);
 var inputElement = document.querySelector('.' + filepondClass);
-FilePond.create(inputElement, instanceOptions);
+const pond = FilePond.create(inputElement, instanceOptions);

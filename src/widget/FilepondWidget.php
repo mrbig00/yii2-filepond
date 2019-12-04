@@ -74,8 +74,8 @@ class FilepondWidget extends InputWidget
 
         $this->registerAssets($view);
         $view->registerJsVar('filepondClass', $this->filepondClass);
-        $view->registerJs('var instanceOptions = ' . json_encode($this->instanceOptions).";", $view::POS_HEAD);
-        $view->registerJs('var settingsOptions = ' . json_encode($this->settingsOptions).";", $view::POS_HEAD);
+        $view->registerJs('var instanceOptions = ' . Json::encode($this->instanceOptions).";", $view::POS_HEAD);
+        $view->registerJs('var settingsOptions = ' . Json::encode($this->settingsOptions).";", $view::POS_HEAD);
         FilepondConfigAsset::register($view);
     }
 
